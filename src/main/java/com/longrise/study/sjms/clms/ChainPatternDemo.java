@@ -1,5 +1,8 @@
 package com.longrise.study.sjms.clms;
 
+/**
+ * 责任链模式
+ */
 public class ChainPatternDemo {
     public static void main(String[] args) {
         AbstractLogger loggerChain = new ErrorLogger();

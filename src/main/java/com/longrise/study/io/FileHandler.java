@@ -6,6 +6,9 @@ import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 
+/**
+ * 使用批处理命令ffmpeg修改音频文件头信息
+ */
 public class FileHandler{
     private String omdir = "D:\\Downloads\\StoneStory\\";
     private String nmdir = "D:\\Downloads\\StoneStory\\new\\";
