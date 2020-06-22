@@ -1,6 +1,6 @@
 package com.longrise.study.sjms.mbms;
 
-public class Footbal extends Game {
+public class Football extends Game {
 
     @Override
     void initialize() {

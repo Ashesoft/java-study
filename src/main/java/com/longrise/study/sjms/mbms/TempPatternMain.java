@@ -28,7 +28,7 @@ public class TempPatternMain {
 
         System.out.println();
 
-        game = new Footbal();
+        game = new Football();
         game.play();
     }
 }
