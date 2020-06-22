@@ -36,7 +36,7 @@ public class TwinMain {
                 }
             });
 
-            // 将线程设置为守护线程, 主线程结束后, 收获线程自动结束
+            // 将线程设置为守护线程, 主线程结束后, 守护线程自动结束
             thread.setDaemon(true);
             thread.start();
         }
