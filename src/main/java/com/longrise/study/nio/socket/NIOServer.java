@@ -76,16 +76,14 @@ public class NIOServer {
     private static void handleRead(SelectionKey key) throws IOException {
         SocketChannel sChannel = (SocketChannel) key.channel();
         ByteBuffer buffer = (ByteBuffer) key.attachment();
-        var read = sChannel.read(buffer);
         var bytes = new byte[120];
-        while (read != -1) {
+        while (sChannel.read(buffer) != -1) {
             buffer.flip();
             while(buffer.hasRemaining()){
-                buffer.get(bytes, 0, read);
+                buffer.get(bytes, 0, buffer.limit());
                 System.out.println(new String(bytes));
             }
             buffer.clear();
-            read = sChannel.read(buffer);
         }
     }
 

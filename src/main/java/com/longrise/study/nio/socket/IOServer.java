@@ -12,8 +12,7 @@ public class IOServer {
 
     public static void server() {
         try (ServerSocket serverSocket = new ServerSocket(9527);) {
-            int recvMsgSize = 0;
-            byte[] recvBuffer = new byte[120];
+            var recvBuffer = new byte[120];
             Socket clnSocket = null;
             InputStream in = null;
             try {
@@ -23,7 +22,7 @@ public class IOServer {
                     SocketAddress clientAddress = clnSocket.getRemoteSocketAddress();
                     System.out.println("Handling client at " + clientAddress);
 
-                    while ((recvMsgSize = in.read(recvBuffer)) != -1) {
+                    while ((in.read(recvBuffer)) != -1) {
                         System.out.println(new String(recvBuffer));
                     }
                 }

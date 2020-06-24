@@ -13,8 +13,8 @@ public class M3u8FileRead {
         File file = new File(src, "hlm.m3u8");
         try (FileInputStream fInputStream = new FileInputStream(file);
                 FileChannel channel = fInputStream.getChannel();) { // 为文件输入流创建通道
-            ByteBuffer buffer = ByteBuffer.allocate(105); // 创建缓冲区并分配大小
-            int bread = -1; // 标识符
+            var buffer = ByteBuffer.allocate(105); // 创建缓冲区并分配大小
+            var bread = -1; // 标识符
             while ((bread = channel.read(buffer)) != -1) { // 将通道中的数据读取到缓冲区并判断读取的数据的大小
                 /**
                  * 反转缓冲区, 此前是写操作, 现在是读操作
