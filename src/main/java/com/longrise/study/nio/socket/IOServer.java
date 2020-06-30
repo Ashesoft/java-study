@@ -17,12 +17,12 @@ public class IOServer {
             InputStream in = null;
             try {
                 while (true) {
-                    clnSocket = serverSocket.accept();
-                    in = clnSocket.getInputStream();
+                    clnSocket = serverSocket.accept(); // 监听要连接到此套接字的socket连接, 并阻塞直到建立连接
+                    in = clnSocket.getInputStream(); // 获取输入流
                     SocketAddress clientAddress = clnSocket.getRemoteSocketAddress();
                     System.out.println("Handling client at " + clientAddress);
 
-                    while ((in.read(recvBuffer)) != -1) {
+                    while ((in.read(recvBuffer)) != -1) { // 循环读取输入流中的数据, 并再控制台输出
                         System.out.println(new String(recvBuffer));
                     }
                 }

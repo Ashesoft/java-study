@@ -46,12 +46,18 @@ public class NIOServer {
                     if (key.isAcceptable()) {
                         handleAccept(key);
                     }
+
+                    // 检测channel是否可读
                     if (key.isReadable()) {
                         handleRead(key);
                     }
+
+                    // 检测channel是否可写
                     if (key.isWritable() && key.isValid()) {
                         handleWrite(key);
                     }
+
+                    // 检测此密钥的channel是否已经完成或未完成其套接字连接操作
                     if (key.isConnectable()) {
                         System.out.println("isConnectable = true");
                     }
