@@ -25,7 +25,7 @@ public class SearchAndMoveFile {
         File[] files = file.listFiles();
         for (File _file : files) {
             if (_file.isDirectory()) {
-                readFile(src + "/" + _file.getName());
+                readFile(_file.getAbsolutePath());
             } else {
                 if (_file.getName().endsWith("1.mp4")) {
                     File f = new File(outsrc, _file.getParentFile().getName() + "王德峰《红楼梦》品读讲座精选集.mp4");
