@@ -31,9 +31,13 @@ public class FlatMapDemo {
         System.out.println("-------------");
         int rs = random.ints().filter(i -> i > 0 && String.valueOf(i).length() == 6).findAny().getAsInt(); // 生成6位 int 类型验证码
         System.err.println(rs);
+        rs  = random.ints(100000, 1000000).findAny().getAsInt(); // 生成6位 int 类型验证码
+        System.err.println(rs);
 
         // 使用 ints 方法生成 IntStream, 在通过 boxed 方法包装成 Stream<Integer>, 再通过 map 方法获取属性并包装成 Stream<String>, 最后取值(默认值000000)
         String orElseGet = random.ints().filter(i -> i > 0 && String.valueOf(i).length() == 6).boxed().map(s->s.toString()).findAny().orElseGet(()->"000000"); // 生成6位 String 类型验证码
+        System.err.println(orElseGet);
+        orElseGet = random.ints(100000, 1000000).boxed().map(s->s.toString()).findAny().orElseGet(()->"000000"); // 生成6位 String 类型验证码
         System.err.println(orElseGet);
 
 
