@@ -66,7 +66,8 @@ public class DownLoadProcessor {
     }
 
     public static void main(String[] args) {
-        File file = new File("E:/", "out.mp4");
+        // File file = new File("E:/", "out.mp4");
+        File file = new File("/home/idea/Videos", "out.mp4");
         download("http://cs.ananas.chaoxing.com/download/f8dc25b2c2807d0f7a9d5bf9c44f6031", file, null);
     }
 }
