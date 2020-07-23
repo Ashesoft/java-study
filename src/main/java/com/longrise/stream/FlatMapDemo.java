@@ -22,23 +22,22 @@ public class FlatMapDemo {
         // peek 是个中间操作, 用于 debug 时查看流状态的
         // forEach 是个终止操作, 用于输出流结果的
         System.out.println("----peek----");
-        Stream.of(str.split(" ")).flatMap(s -> s.chars().boxed()).peek(System.out::println)
-                .forEach(System.out::println);
+        Stream.of(str.split(" ")).flatMap(s -> s.chars().boxed()).peek(System.out::println).forEach(System.out::println);
 
         // limit 通常使用在无限流中
         Random random = new Random();
         random.ints().limit(10).forEach(System.out::println);
         System.out.println("-------------");
         int rs = random.ints().filter(i -> i > 0 && String.valueOf(i).length() == 6).findAny().getAsInt(); // 生成6位 int 类型验证码
-        System.err.println(rs);
-        rs  = random.ints(100000, 1000000).findAny().getAsInt(); // 生成6位 int 类型验证码
-        System.err.println(rs);
+        System.err.println("rs=" + rs);
+        rs  = random.ints(100000, 1000000).findAny().getAsInt(); // 生成6位 int 类型验证码(简单)
+        System.err.println("rs=" + rs);
 
         // 使用 ints 方法生成 IntStream, 在通过 boxed 方法包装成 Stream<Integer>, 再通过 map 方法获取属性并包装成 Stream<String>, 最后取值(默认值000000)
-        String orElseGet = random.ints().filter(i -> i > 0 && String.valueOf(i).length() == 6).boxed().map(s->s.toString()).findAny().orElseGet(()->"000000"); // 生成6位 String 类型验证码
-        System.err.println(orElseGet);
-        orElseGet = random.ints(100000, 1000000).boxed().map(s->s.toString()).findAny().orElseGet(()->"000000"); // 生成6位 String 类型验证码
-        System.err.println(orElseGet);
+        String orElseGet = random.ints().filter(i -> i > 0 && String.valueOf(i).length() == 6).boxed().map(String::valueOf).findAny().orElseGet(()->"000000"); // 生成6位 String 类型验证码
+        System.err.println("orElseGet=" + orElseGet);
+        orElseGet = random.ints(100000, 1000000).boxed().map(String::valueOf).findAny().orElseGet(()->"000000"); // 生成6位 String 类型验证码
+        System.err.println("orElseGet=" + orElseGet);
 
 
         // collect 收集器(收集成 list 集合, set 集合)
