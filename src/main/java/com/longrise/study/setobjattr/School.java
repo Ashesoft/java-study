@@ -2,6 +2,7 @@ package com.longrise.study.setobjattr;
 
 import java.util.Date;
 
+// 学校
 public class School {
     private long sid; // 学校编号
     private String sname; // 学校名称
