@@ -1,7 +1,6 @@
 package com.longrise.study;
 
 import java.util.UUID;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * 
@@ -30,8 +29,7 @@ public class App {
     }
 
     public static void ss(){
-        for (int i = 1; i <= 108; i++) {
-            
+        for (int i = 1; i <= 3707; i++) {
             String ss = UUID.randomUUID().toString().replaceAll("-", "");
             System.out.println(ss);
         }
