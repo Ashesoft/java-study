@@ -50,7 +50,7 @@ public class CustomEncode {
 
   private String decbase64data(String str) {
     if (Strings.isNullOrEmpty(str) || str.length() < 20) {
-      return null;
+      return "";
     }
 
     int len = str.length() - 9,
@@ -68,7 +68,7 @@ public class CustomEncode {
   }
 
   public String encrypt(String data) {
-    String from = null;
+    String from = "";
     try {
       from = Base64.getEncoder().encodeToString(URLEncoder.encode(data, "UTF-8").getBytes());
     } catch (UnsupportedEncodingException e) {
@@ -84,6 +84,14 @@ public class CustomEncode {
     } catch (UnsupportedEncodingException e) {
       e.printStackTrace();
     }
-    return null;
+    return "";
   }
 }
+/*
+ * <code>
+ * fbf444642f62463e98be0e4ec96d2df0I0C56P8081E : **1648015430338** :
+ * ******0****** : ***0*** : ******** : **********
+ * *****************sessionid***************** : currentTimeMillis :
+ * isHasUserFlag : version : userFlag : positionid
+ * </code>
+ */
