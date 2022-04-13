@@ -26,8 +26,8 @@ public class ConvertToolTest {
         .orElseGet(() -> {
           String[] hexary = src.split("-");
           StringBuilder stringBuilder = new StringBuilder();
-          for (int i = 0, len = hexary.length; i < len; i++) {
-            stringBuilder.append((char) (Integer.parseInt(hexary[i], 16)));
+          for (String s : hexary) {
+            stringBuilder.append((char) Integer.parseInt(s, 16));
           }
           return stringBuilder.toString();
         });
